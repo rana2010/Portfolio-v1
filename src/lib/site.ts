@@ -3,7 +3,6 @@ export const site = {
   role: "Product Designer",
   location: "Cairo, Egypt",
   email: "ranaebrahim@aucegypt.edu",
-  tagline: "Product designer blending tech know-how with a love for aesthetics.",
   openToWork: true,
   links: {
     linkedin: "https://www.linkedin.com/in/rana-ebrahim-875614175",
@@ -24,11 +23,11 @@ export const navItems: {
 ];
 
 export const about = {
-  eyebrow: "About",
+  crumb: "About",
   headline: "I'm Rana, a product designer in Cairo, Egypt.",
   paragraphs: [
     "Born and raised in Egypt, I graduated from The American University in Cairo with a major in Marketing and double minors in Computer Science and Interactive Design. As a product designer, I blend tech know-how with a love for aesthetics in everything I create.",
-    "To me, design is about the story it tells — not just how it looks. I care about the small moments people encounter while using a product: whether a flow feels clear after a tap, how feedback lands, and whether the interface helps someone feel confident.",
+    "To me, design is about the story it tells — not just how it looks. I spend a lot of time on the small things people encounter while using a product: how a control responds, whether it's clear what happened after a tap, and whether the next step feels obvious.",
     "I work across e-commerce, fintech, and consumer products. Prototyping in code lets me explore how an interface feels while I'm still figuring it out — try an interaction, change it, and see what happens.",
   ],
 };
@@ -71,19 +70,34 @@ export const career = [
 export const techStack = [
   {
     category: "Design",
-    items: ["Figma", "FigJam", "Adobe Illustrator", "Adobe Photoshop"],
+    items: [
+      { name: "Figma", icon: "/stack/figma.svg", mask: true },
+      { name: "FigJam", icon: "/stack/figma.svg", mask: true },
+    ],
   },
   {
     category: "Development",
-    items: ["React", "TypeScript", "Tailwind CSS", "HTML / CSS"],
+    items: [
+      { name: "React", icon: "/stack/react.svg", mask: true },
+      { name: "TypeScript", icon: "/stack/typescript.svg", mask: true },
+      { name: "Tailwind CSS", icon: "/stack/tailwind.svg", mask: true },
+      { name: "shadcn/ui", icon: "/stack/shadcn.svg", mask: true },
+    ],
   },
   {
     category: "AI tools",
-    items: ["Cursor", "Claude", "ChatGPT"],
+    items: [
+      { name: "Cursor", icon: "/stack/cursor.svg", mask: true },
+      { name: "Claude", icon: "/stack/claude.svg", mask: true },
+      { name: "ChatGPT", icon: "/stack/chatgpt.svg", mask: true },
+    ],
   },
   {
-    category: "Research & delivery",
-    items: ["User interviews", "Usability testing", "Design systems"],
+    category: "Version control & deployment",
+    items: [
+      { name: "GitHub", icon: "/stack/github.svg", mask: true },
+      { name: "Vercel", icon: "/stack/vercel.svg", mask: true },
+    ],
   },
 ] as const;
 
@@ -101,41 +115,45 @@ export const projects = [
     slug: "noon",
     title: "noon",
     description:
-      "Product design for one of the Middle East's largest online shopping platforms — shaping flows that help millions of shoppers discover, decide, and buy.",
+      "Product design for one of the Middle East's largest online shopping platforms.",
     category: "E-commerce",
     year: "2025",
     href: "https://www.noon.com",
     external: true,
+    gradient: "linear-gradient(135deg, #FEE500 0%, #FF8A00 55%, #1A1A1A 120%)",
   },
   {
     slug: "fawry",
     title: "Fawry",
     description:
-      "Junior product design for Egypt's leading e-payments and digital finance platform — making everyday money tasks clearer and more trustworthy.",
+      "Junior product design for Egypt's leading e-payments and digital finance platform.",
     category: "Fintech",
     year: "2024",
     href: "https://fawry.com",
     external: true,
+    gradient: "linear-gradient(135deg, #E31C23 0%, #7A0B10 70%, #1A1A1A 120%)",
   },
   {
     slug: "reddit-redesign",
     title: "Reddit redesign",
     description:
-      "A cleaner, more intuitive Reddit experience with updated UI, smarter search filters, and an AI helper for common questions.",
+      "A cleaner Reddit experience with smarter search and an AI helper for common questions.",
     category: "Case study",
     year: "2024",
     href: "https://www.linkedin.com/posts/rana-ebrahim-875614175_uxdesign-reddit-userexperience-activity-7215625614387531776-rgGZ",
     external: true,
+    gradient: "linear-gradient(135deg, #FF4500 0%, #1A1A1B 65%)",
   },
   {
     slug: "quitkit",
     title: "QuitKit",
     description:
-      "An emotionally engaging mobile app for quitting smoking — tobacco tracking, progress updates, motivational content, and social support.",
+      "An emotionally engaging mobile app for quitting smoking — tracking, progress, and social support.",
     category: "Health",
     year: "2023",
     href: "#",
     external: false,
+    gradient: "linear-gradient(135deg, #2A9D8F 0%, #1B4332 70%)",
   },
 ] as const;
 
@@ -145,13 +163,11 @@ export const writing = [
     excerpt:
       "Notes on why concept comes before visual polish — and how that shows up in product work.",
     date: "2025",
-    href: "#",
   },
   {
     title: "Prototyping in code as a designer",
     excerpt:
       "How working directly in an interface changes the questions I ask about interaction and feedback.",
     date: "2025",
-    href: "#",
   },
 ] as const;

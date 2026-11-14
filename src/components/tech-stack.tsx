@@ -2,24 +2,38 @@ import { techStack } from "@/lib/site";
 
 export function TechStack() {
   return (
-    <div className="grid gap-10 sm:grid-cols-2">
+    <>
       {techStack.map((group) => (
-        <div key={group.category}>
-          <h3 className="mb-4 text-xs font-medium tracking-[0.12em] text-muted-foreground uppercase">
-            {group.category}
-          </h3>
-          <ul className="flex flex-wrap gap-2">
+        <div key={group.category} className="about-stack">
+          <h3>{group.category}</h3>
+          <ul>
             {group.items.map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-black/6 bg-white/70 px-3.5 py-1.5 text-sm text-foreground"
-              >
-                {item}
+              <li key={item.name}>
+                {item.mask ? (
+                  <span
+                    className="about-stack-logo about-stack-mask"
+                    style={{
+                      WebkitMaskImage: `url(${item.icon})`,
+                      maskImage: `url(${item.icon})`,
+                    }}
+                    aria-hidden
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    className="about-stack-logo"
+                    src={item.icon}
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
+                )}
+                {item.name}
               </li>
             ))}
           </ul>
         </div>
       ))}
-    </div>
+    </>
   );
 }

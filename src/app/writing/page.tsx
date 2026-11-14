@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FadeIn } from "@/components/fade-in";
 import { writing } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,33 +8,29 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-      <section className="pt-10 pb-12 md:pt-16">
-        <FadeIn>
-          <p className="mb-5 text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-            Writing
-          </p>
-          <h1 className="max-w-3xl text-[clamp(2rem,4.8vw,3.5rem)] leading-[1.08] font-bold tracking-[-0.03em] text-balance">
-            Notes on product design, storytelling, and building in code.
-          </h1>
-        </FadeIn>
-      </section>
+    <article className="sc-page">
+      <header className="sc-hero st-page-hero">
+        <p className="sc-crumb st-reveal">
+          <span>Writing</span>
+        </p>
+        <h1 className="st-page-title st-reveal st-reveal-d1">
+          Notes on product design, storytelling, and building in code.
+        </h1>
+      </header>
 
-      <ul className="divide-y divide-black/8 border-y border-black/8">
-        {writing.map((post, index) => (
-          <FadeIn key={post.title} delay={0.05 * index}>
-            <li className="py-8">
-              <p className="mb-2 text-sm text-muted-foreground">{post.date}</p>
-              <h2 className="mb-2 text-2xl font-semibold tracking-tight">
-                {post.title}
-              </h2>
-              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-                {post.excerpt}
-              </p>
-            </li>
-          </FadeIn>
+      <ul className="about-career" style={{ marginTop: "4vh" }}>
+        {writing.map((post) => (
+          <li key={post.title} className="simple-row">
+            <span className="simple-row-head">
+              <span className="simple-row-title">{post.title}</span>
+              <span className="about-years">{post.date}</span>
+            </span>
+            <span className="simple-row-desc" style={{ paddingLeft: 0 }}>
+              {post.excerpt}
+            </span>
+          </li>
         ))}
       </ul>
-    </div>
+    </article>
   );
 }

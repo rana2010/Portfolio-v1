@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#f4f4f2" />
+    <title>Page not found · Lucas Lima</title>
+    <link rel="icon" href="/brand/web/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/brand/web/favicon.svg" />
+    <style>
+      @font-face { font-family: 'General Sans'; src: url('/fonts/general-sans-500.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+      @font-face { font-family: 'General Sans'; src: url('/fonts/general-sans-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+      html, body { margin: 0; }
+      body { min-height: 100svh; display: grid; place-items: center; padding: 32px; box-sizing: border-box; background: #f4f4f2 radial-gradient(circle, rgb(50 50 50 / .35) 1px, transparent 1.2px) -25px -25px / 50px 50px; color: #121211; font: 400 17px/1.45 'General Sans', system-ui, sans-serif; letter-spacing: -.01em; -webkit-font-smoothing: antialiased; }
+      main { max-width: 640px; }
+      .code { margin: 0 0 12px; color: #6d6c66; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .01em; }
+      h1 { margin: 0; font-size: clamp(48px, 12vw, 120px); font-weight: 500; line-height: .9; letter-spacing: -.05em; text-transform: uppercase; }
+      p { margin: 24px 0 0; color: #6d6c66; }
+      a { display: inline-flex; align-items: center; height: 44px; margin-top: 32px; padding: 0 20px; border-radius: 99px; background: rgb(228 228 224 / .9); color: #121211; font-weight: 500; text-decoration: none; }
+      a:hover { background: rgb(214 214 209); }
+      a:focus-visible { outline: 1.5px solid currentColor; outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="code">404</p>
+      <h1>Page not found</h1>
+      <p>This page doesn’t exist, or it moved. Página não encontrada.</p>
+      <a href="/">Lucas Lima, home</a>
+    </main>
+  </body>
+</html>

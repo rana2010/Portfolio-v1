@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { CareerList } from "@/components/career-list";
-import { FadeIn } from "@/components/fade-in";
 import { PhotoCollage } from "@/components/photo-collage";
 import { TechStack } from "@/components/tech-stack";
-import { about, site } from "@/lib/site";
+import { about } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,68 +11,34 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-      <section className="pt-10 pb-6 md:pt-16 md:pb-10">
-        <FadeIn>
-          <p className="mb-5 text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-            {about.eyebrow}
-          </p>
-        </FadeIn>
+    <article className="sc-page about-page">
+      <header className="sc-hero st-page-hero">
+        <p className="sc-crumb st-reveal">
+          <span>{about.crumb}</span>
+        </p>
+        <h1 className="st-page-title st-reveal st-reveal-d1">{about.headline}</h1>
+      </header>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
-          <FadeIn delay={0.05}>
-            <h1 className="max-w-xl text-[clamp(2rem,4.8vw,3.5rem)] leading-[1.08] font-bold tracking-[-0.03em] text-balance">
-              {about.headline}
-            </h1>
-          </FadeIn>
+      {about.paragraphs.map((paragraph, index) => (
+        <p
+          key={paragraph.slice(0, 24)}
+          className={`st-reveal st-reveal-d${Math.min(index + 2, 4)}`}
+        >
+          {paragraph}
+        </p>
+      ))}
 
-          <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-[1.05rem] md:leading-[1.7]">
-            {about.paragraphs.map((paragraph, index) => (
-              <FadeIn key={paragraph.slice(0, 24)} delay={0.1 + index * 0.07}>
-                <p>{paragraph}</p>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
+      <PhotoCollage />
 
-        <PhotoCollage />
+      <section aria-labelledby="career-heading">
+        <h2 id="career-heading">Career</h2>
+        <CareerList />
       </section>
 
-      <section className="pt-16 md:pt-20">
-        <FadeIn>
-          <h2 className="mb-8 text-3xl font-bold tracking-tight md:text-4xl">
-            Career
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.08}>
-          <CareerList />
-        </FadeIn>
+      <section aria-labelledby="stack-heading">
+        <h2 id="stack-heading">Tech stack</h2>
+        <TechStack />
       </section>
-
-      <section className="pt-16 md:pt-20">
-        <FadeIn>
-          <h2 className="mb-8 text-3xl font-bold tracking-tight md:text-4xl">
-            Tech stack
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.08}>
-          <TechStack />
-        </FadeIn>
-      </section>
-
-      <FadeIn delay={0.05}>
-        <section className="mt-16 flex flex-col gap-3 border-t border-black/8 pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted-foreground">
-            Based in {site.location}. Currently designing at noon.
-          </p>
-          <a
-            href={`mailto:${site.email}`}
-            className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
-          >
-            {site.email}
-          </a>
-        </section>
-      </FadeIn>
-    </div>
+    </article>
   );
 }

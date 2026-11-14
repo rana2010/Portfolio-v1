@@ -14,6 +14,8 @@ export function SiteHeader() {
           const active = item.exact
             ? pathname === item.href
             : pathname === item.href || pathname.startsWith(`${item.href}/`);
+          const shortLabel =
+            item.href === "/" ? "Rana" : item.label;
 
           return (
             <Link
@@ -21,8 +23,10 @@ export function SiteHeader() {
               href={item.href}
               className="st-pill"
               aria-current={active ? "page" : undefined}
+              aria-label={item.label}
             >
-              {item.label}
+              <span className="st-pill-full">{item.label}</span>
+              <span className="st-pill-short">{shortLabel}</span>
             </Link>
           );
         })}
@@ -39,9 +43,10 @@ export function SiteHeader() {
           </a>
         </div>
         {site.openToWork && (
-          <span className="st-pill" aria-label="Open to work">
+          <span className="st-pill st-status" aria-label="Open to work">
             <span className="st-dot" aria-hidden />
-            Open to work
+            <span className="st-status-full">Open to work</span>
+            <span className="st-status-short">Open</span>
           </span>
         )}
       </div>

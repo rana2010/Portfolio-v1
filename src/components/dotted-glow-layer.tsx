@@ -1,47 +1,27 @@
-"use client";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 
-import { useEffect, useRef } from "react";
-
+/**
+ * Full-viewport animated dotted background.
+ * Fixed behind all page content; the canvas animation stays subtle and
+ * respects the global reduced-motion rules.
+ */
 export function DottedGlowLayer() {
-  const layerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const layer = layerRef.current;
-    if (!layer) return;
-
-    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-    if (!finePointer.matches) return;
-
-    let frame = 0;
-    let x = 0;
-    let y = 0;
-
-    const paint = () => {
-      frame = 0;
-      layer.style.setProperty("--glow-x", `${x}px`);
-      layer.style.setProperty("--glow-y", `${y}px`);
-    };
-
-    const handleMove = (event: PointerEvent) => {
-      x = event.clientX;
-      y = event.clientY;
-      layer.dataset.active = "true";
-      if (!frame) frame = requestAnimationFrame(paint);
-    };
-
-    const handleLeave = () => {
-      layer.dataset.active = "false";
-    };
-
-    window.addEventListener("pointermove", handleMove, { passive: true });
-    document.documentElement.addEventListener("pointerleave", handleLeave);
-
-    return () => {
-      window.removeEventListener("pointermove", handleMove);
-      document.documentElement.removeEventListener("pointerleave", handleLeave);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  return <div ref={layerRef} className="dotted-glow-layer" data-active="false" aria-hidden="true" />;
+  return (
+    <div className="st-dot-bg" aria-hidden="true">
+      <DottedGlowBackground
+        className="pointer-events-none"
+        opacity={1}
+        gap={28}
+        radius={1.15}
+        colorLightVar="--st-dot"
+        glowColorLightVar="--st-dot-glow"
+        colorDarkVar="--st-dot"
+        glowColorDarkVar="--st-dot-glow"
+        backgroundOpacity={0}
+        speedMin={0.25}
+        speedMax={1.1}
+        speedScale={1}
+      />
+    </div>
+  );
 }

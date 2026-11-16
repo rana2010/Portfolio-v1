@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { navItems, site } from "@/lib/site";
 
 export function SiteHeader() {
@@ -14,8 +15,7 @@ export function SiteHeader() {
           const active = item.exact
             ? pathname === item.href
             : pathname === item.href || pathname.startsWith(`${item.href}/`);
-          const shortLabel =
-            item.href === "/" ? "Rana" : item.label;
+          const shortLabel = item.label;
 
           return (
             <Link
@@ -33,15 +33,7 @@ export function SiteHeader() {
       </nav>
 
       <div className="st-side">
-        <div className="st-lang st-pill" aria-label="Language">
-          <span className="st-lang-thumb" aria-hidden />
-          <a href="/" aria-current="true">
-            EN
-          </a>
-          <a href="/" aria-disabled="true" tabIndex={-1} title="Coming soon">
-            AR
-          </a>
-        </div>
+        <ThemeToggle />
         {site.openToWork && (
           <span className="st-pill st-status" aria-label="Open to work">
             <span className="st-dot" aria-hidden />

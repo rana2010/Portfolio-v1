@@ -16,10 +16,8 @@ export const navItems: {
   label: string;
   exact?: boolean;
 }[] = [
-  { href: "/", label: "Rana Ebrahim", exact: true },
   { href: "/projects", label: "Projects" },
   { href: "/writing", label: "Writing" },
-  { href: "/about", label: "About" },
 ];
 
 export const about = {

@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { expertise, projects, site } from "@/lib/site";
+import { CareerList } from "@/components/career-list";
+import { PhotoCollage } from "@/components/photo-collage";
+import { TechStack } from "@/components/tech-stack";
+import { about, expertise, projects, site } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -50,7 +53,7 @@ export default function HomePage() {
       </div>
 
       <ul className="st-work-list">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <li key={project.slug}>
             <a
               className="st-work-item"
@@ -59,7 +62,12 @@ export default function HomePage() {
               rel={project.external ? "noopener noreferrer" : undefined}
             >
               <div className="st-work-head">
-                <span className="st-work-name">{project.title}</span>
+                <span className="st-work-name">
+                  <span className="st-work-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {project.title}
+                </span>
                 <span className="st-work-desc">{project.description}</span>
               </div>
               <div className="st-work-cover">
@@ -77,6 +85,27 @@ export default function HomePage() {
           </li>
         ))}
       </ul>
+
+      <section id="about" className="st-pad st-a-sec st-reveal">
+        <h2 className="st-page-title-kicker">About</h2>
+        <p className="st-page-title">{about.headline}</p>
+        {about.paragraphs.map((paragraph, index) => (
+          <p key={index} className={`st-paragraph st-reveal st-reveal-d${Math.min(index + 2, 4)}`}>
+            {paragraph}
+          </p>
+        ))}
+        <PhotoCollage />
+        <div className="st-stack-grid">
+          <article>
+            <h3 id="career-heading">Career</h3>
+            <CareerList />
+          </article>
+          <article>
+            <h3 id="stack-heading">Tech stack</h3>
+            <TechStack />
+          </article>
+        </div>
+      </section>
 
       <div className="st-sec">
         <h2>

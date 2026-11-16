@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { navItems, site } from "@/lib/site";
+import { navItems, pageShell, site } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="st-header">
-      <nav className="st-nav" aria-label="Primary">
+    <header className="st-header py-6">
+      <div className={`${pageShell} st-header-row`}>
+        <nav className="st-nav" aria-label="Primary">
         {navItems.map((item) => {
           const active = item.exact
             ? pathname === item.href
@@ -30,9 +31,9 @@ export function SiteHeader() {
             </Link>
           );
         })}
-      </nav>
+        </nav>
 
-      <div className="st-side">
+        <div className="st-side">
         <ThemeToggle />
         {site.openToWork && (
           <span className="st-pill st-status" aria-label="Open to work">
@@ -41,6 +42,7 @@ export function SiteHeader() {
             <span className="st-status-short">Open</span>
           </span>
         )}
+        </div>
       </div>
     </header>
   );

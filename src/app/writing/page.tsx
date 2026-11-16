@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { writing } from "@/lib/site";
+import { pageShell, writing } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Writing",
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <article className="sc-page">
+    <article className={`sc-page ${pageShell} pt-12 pb-20 md:pt-16 md:pb-28`}>
       <header className="sc-hero st-page-hero">
         <p className="sc-crumb st-reveal">
           <span>Writing</span>
@@ -18,7 +18,7 @@ export default function WritingPage() {
         </h1>
       </header>
 
-      <ul className="about-career" style={{ marginTop: "4vh" }}>
+      <ul className="about-career mt-10 md:mt-12">
         {writing.map((post) => (
           <li key={post.title} className="simple-row">
             <span className="simple-row-head">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CareerList } from "@/components/career-list";
 import { PhotoCollage } from "@/components/photo-collage";
 import { TechStack } from "@/components/tech-stack";
-import { about } from "@/lib/site";
+import { about, pageShell } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <article className="sc-page about-page">
+    <article className={`sc-page about-page ${pageShell} pt-12 pb-20 md:pt-16 md:pb-28`}>
       <header className="sc-hero st-page-hero">
         <p className="sc-crumb st-reveal">
           <span>{about.crumb}</span>

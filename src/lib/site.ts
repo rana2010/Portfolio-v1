@@ -1,8 +1,13 @@
+/** Shared frame so nav, headline, and sections share one left edge. */
+export const pageShell =
+  "mx-auto w-full max-w-[1360px] px-6 md:px-12 lg:px-16";
+
 export const site = {
   name: "Rana Ebrahim",
   role: "Product Designer",
   location: "Cairo, Egypt",
   email: "ranaebrahim@aucegypt.edu",
+  tagline: "LOVEE CREATING EXPERIENCES!!",
   openToWork: true,
   links: {
     linkedin: "https://www.linkedin.com/in/rana-ebrahim-875614175",

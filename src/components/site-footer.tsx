@@ -1,10 +1,10 @@
-import { site } from "@/lib/site";
+import { pageShell, site } from "@/lib/site";
 
 export function SiteFooter() {
   const letters = site.name.split("");
 
   return (
-    <footer className="st-footer">
+    <footer className={`st-footer ${pageShell} pt-20 md:pt-28`}>
       <div className="st-footer-row">
         <nav aria-label="Elsewhere">
           <a

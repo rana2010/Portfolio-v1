@@ -286,6 +286,28 @@
   }
 }
 
+.dotted-glow-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, #121211b3 1.3px, transparent 1.6px) -25px -25px / 50px 50px;
+  -webkit-mask: radial-gradient(220px circle at var(--glow-x, 50%) var(--glow-y, 50%), #000, #0000);
+  mask: radial-gradient(220px circle at var(--glow-x, 50%) var(--glow-y, 50%), #000, #0000);
+  opacity: 0;
+  transition: opacity 0.4s var(--st-e);
+}
+
+.dotted-glow-layer[data-active="true"] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotted-glow-layer {
+    display: none;
+  }
+}
+
 .page-content {
   padding-top: 0;
 }

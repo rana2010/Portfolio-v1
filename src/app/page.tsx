@@ -1,26 +1,20 @@
-import Link from "next/link";
 import { CareerList } from "@/components/career-list";
 import { TechStack } from "@/components/tech-stack";
-import { about, expertise, projects, site } from "@/lib/site";
+import { about, expertise, site } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <div className="st-home">
       <section className="st-pad">
         <h1 className="st-big st-reveal" aria-label="Product Designer">
-          <span>Product</span>
-          <span>Designer</span>
+          Product Designer
         </h1>
 
         <div className="st-subrow st-reveal st-reveal-d1">
           <a className="st-email" href={`mailto:${site.email}`}>
             {site.email}
           </a>
-          <p className="st-tagline">
-            Designing products
-            <br />
-            people trust
-          </p>
+          <p className="st-tagline">LOVEE CREATING EXPERIENCES!!</p>
         </div>
 
         <div className="st-lede-row">
@@ -61,61 +55,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="st-sec st-reveal st-reveal-d4" id="work">
-        <h2>
-          <b>
-            Selected
-            <br />
-            work
-          </b>
-        </h2>
-      </div>
-
-      <ul className="st-work-list">
-        {projects.map((project, index) => (
-          <li key={project.slug}>
-            <a
-              className="st-work-item"
-              href={project.external ? project.href : `/projects`}
-              target={project.external ? "_blank" : undefined}
-              rel={project.external ? "noopener noreferrer" : undefined}
-            >
-              <div className="st-work-head">
-                <span className="st-work-name">
-                  <span className="st-work-index" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {project.title}
-                </span>
-                <span className="st-work-desc">{project.description}</span>
-              </div>
-              <div className="st-work-cover">
-                <div
-                  className="st-work-cover-inner"
-                  style={{ ["--cover-gradient" as string]: project.gradient }}
-                >
-                  <span className="st-work-meta">
-                    {project.category} · {project.year}
-                    {project.external ? " · Visit ↗" : ""}
-                  </span>
-                </div>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div className="st-sec">
-        <h2>
-          <Link href="/writing" style={{ color: "inherit", textDecoration: "none" }}>
-            <b>
-              Notes on
-              <br />
-              design
-            </b>
-          </Link>
-        </h2>
-      </div>
     </div>
   );
 }
